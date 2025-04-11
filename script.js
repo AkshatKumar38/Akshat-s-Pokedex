@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const pokemonListElement = document.getElementById('pokemon-list');
     const pokemonListTitle = document.getElementById('pokemon-list-title');
     const pokemonCard = document.getElementById('pokemon-card');
-    // Re-select inner card elements inside displayPokemon if needed after reset
 
     // State & Constants
     let activeListItem = null;
@@ -13,16 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const POKEAPI_BASE_URL = "https://pokeapi.co/api/v2/";
 
     // --- UI Update Functions ---
-
-    function showLoadingState(area = 'card') { // Specify 'card' or 'list'
+    function showLoadingState(area = 'card') {
         if (area === 'card') {
              pokemonCard.innerHTML = '<p class="loading">Loading Pokémon...</p>';
              pokemonCard.classList.remove('fade-in', 'fade-out');
         } else if (area === 'list') {
             pokemonListTitle.textContent = `Loading Generation...`;
             pokemonListElement.innerHTML = '<p class="loading">Loading list...</p>';
-            // Optionally clear the card display too
-            // pokemonCard.innerHTML = '<p class="loading">Select a Pokémon.</p>';
         }
     }
 
@@ -33,12 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (area === 'list') {
             pokemonListTitle.textContent = `Error`;
             pokemonListElement.innerHTML = `<p class="error">${message}</p>`;
-            pokemonCard.innerHTML = ''; // Clear card on list error
+            pokemonCard.innerHTML = '';
         }
     }
 
     function resetCardStructure() {
-        // Same as before: resets card HTML for population
          pokemonCard.innerHTML = `
             <span class="pokemon-number" id="pokemon-number"></span>
             <h2 class="pokemon-name" id="pokemon-name"></h2>
@@ -51,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // --- Helper Functions --- (createTypeSpans, createStatsHtml, findEnglishFlavorText remain the same)
+    // --- Helper Functions --- 
      function createTypeSpans(typesData) {
         return typesData.map(typeInfo => {
             const typeName = typeInfo.type.name;
@@ -101,11 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const entry of flavorTextEntries) {
             if (entry.language.name === 'en') {
                 const version = entry.version.name;
-                const cleanedText = entry.flavor_text.replace(/[\n\f\r]/g, ' ').replace('POKéMON', 'Pokémon'); // Clean up
+                const cleanedText = entry.flavor_text.replace(/[\n\f\r]/g, ' ').replace('POKéMON', 'Pokémon'); 
                 if (versionPreferences.includes(version)) {
-                     return cleanedText; // Return first preferred match
+                     return cleanedText; 
                 }
-                if (!bestMatch) { // Store first english entry as fallback
+                if (!bestMatch) { 
                     bestMatch = cleanedText;
                 }
             }

@@ -32,8 +32,6 @@
 }
 
 body {
-    /* Add a subtle texture or gradient? Optional */
-    /* background-image: linear-gradient(to bottom right, var(--background-color), #c1e7e8); */
     font-family: 'Roboto', sans-serif;
     background-color: var(--background-color);
     color: var(--dark-color);
@@ -49,8 +47,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--secondary-color);
-    border-radius: 18px; /* Slightly more rounded */
-    /* Softer, deeper shadow */
+    border-radius: 18px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 95%;
@@ -63,13 +60,13 @@ body {
 
 /* Controls Area (Top Bar) */
 .controls-area {
-    padding: 15px 25px; /* Slightly more padding */
+    padding: 15px 25px;
     background-color: var(--dark-color);
     color: var(--light-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* More gap */
+    gap: 15px;
     border-bottom: 4px solid var(--primary-color);
     width: 100%;
     flex-shrink: 0;
@@ -97,23 +94,22 @@ body {
 
 /* Layout for Nav and Main Area */
 .main-layout {
-    display: flex; /* Makes nav and main side-by-side */
+    display: flex;
     flex-direction: row;
     width: 100%;
-    flex-grow: 1; /* Takes remaining vertical space in pokedex-container */
-    overflow: hidden; /* Important for managing heights */
+    flex-grow: 1;
+    overflow: hidden;
 }
 
 /* Navigation Sidebar (Default: Left Side) */
 .pokemon-nav {
     background-color: var(--grey-bg);
     padding: 20px 15px;
-    width: 280px; /* Fixed width */
-    flex-shrink: 0; /* Prevent shrinking */
-    height: 100%; /* Fill parent height */
-    overflow-y: auto; /* Scroll internally */
+    width: 280px;
+    flex-shrink: 0;
+    height: 100%;
+    overflow-y: auto;
     border-right: 4px solid var(--dark-color);
-    /* border-bottom: none; */ /* No bottom border in side-by-side */
 }
 
 .pokemon-nav h2 {
@@ -160,18 +156,18 @@ body {
 
 /* Main Display Area (Default: Right Side) */
 .pokemon-display {
-    flex-grow: 1; /* Takes remaining horizontal space */
-    height: 100%; /* Fill parent height */
+    flex-grow: 1;
+    height: 100%;
     padding: 25px 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     background-color: #d1e3e4;
-    overflow-y: auto; /* Scroll internally if needed */
+    overflow-y: auto;
 }
 
-/* Pokemon Card Styles (No changes needed here) */
+/* Pokemon Card Styles */
 .pokemon-card {
     background-color: var(--card-bg);
     border-radius: 10px;
@@ -221,7 +217,7 @@ body {
     width: 90%;
     height: auto;
     object-fit: contain;
-    image-rendering: pixelated; /* Or 'auto' if pixelated looks bad */
+    image-rendering: pixelated;
 }
 .pokemon-types { margin-bottom: 15px; }
 .type {
@@ -236,7 +232,7 @@ body {
     letter-spacing: 0.5px;
     border: 1px solid rgba(0,0,0,0.1);
 }
-/* Type Colors... (remain the same) */
+/* Type Colors */
 .type-grass { background-color: var(--grass-color); }
 .type-poison { background-color: var(--poison-color); }
 .type-fire { background-color: var(--fire-color); }
@@ -263,7 +259,7 @@ body {
     min-height: 50px;
 }
 
-/* Stats Section Styling (No changes needed here) */
+/* Stats Section Styling*/
 .pokemon-stats {
     margin-top: 20px;
     padding-top: 15px;
@@ -308,7 +304,7 @@ body {
     font-weight: bold;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
-/* Stat Bar Colors... (remain the same) */
+/* Stat Bar Colors*/
 .stat-bar.hp { background-color: var(--stat-hp); }
 .stat-bar.attack { background-color: var(--stat-attack); }
 .stat-bar.defense { background-color: var(--stat-defense); }
@@ -329,14 +325,13 @@ body {
     font-size: 1.2em;
     color: #666;
     text-align: center;
-    width: 100%; /* Ensure message takes space */
+    width: 100%;
 }
 .error {
     color: var(--primary-color);
 }
 
-
-/* Scrollbar styling (optional) */
+/* Scrollbar styling */
 .pokemon-nav::-webkit-scrollbar { width: 10px; }
 .pokemon-nav::-webkit-scrollbar-track { background: #d1d1d1; border-radius: 10px; }
 .pokemon-nav::-webkit-scrollbar-thumb { background: #999; border-radius: 10px; border: 2px solid #d1d1d1; }
@@ -346,43 +341,34 @@ body {
 .pokemon-display::-webkit-scrollbar-thumb { background: #999; border-radius: 10px; border: 2px solid #d1e3e4;}
 .pokemon-display::-webkit-scrollbar-thumb:hover { background: #777; }
 
-
 /* --- Responsive Adjustments --- */
 
 /* Medium Screens and Down (Tablet Portrait / Small Laptop) */
 @media (max-width: 900px) {
-    /* Allow container height to be determined by content */
     .pokedex-container {
         height: auto;
-        max-height: 95vh; /* Limit viewport height usage */
+        max-height: 95vh;
     }
-
-    /* Stack nav and main display vertically */
     .main-layout {
         flex-direction: column;
-        overflow: visible; /* Allow content flow */
+        overflow: visible; 
     }
-
     .pokemon-nav {
-        width: 100%; /* Full width */
-        height: auto; /* Height based on content */
-        max-height: 250px; /* Limit height, force scroll */
-        border-right: none; /* Remove side border */
-        border-bottom: 4px solid var(--dark-color); /* Add bottom border */
-        /* overflow-y: auto; */ /* Already set */
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        border-right: none;
+        border-bottom: 4px solid var(--dark-color); 
     }
-
     .pokemon-display {
-        height: auto; /* Height based on content */
-        flex-grow: 1; /* Still allow it to take space if needed */
+        height: auto;
+        flex-grow: 1;
         padding: 20px;
-        /* overflow-y: visible; */ /* Let content determine scroll, or use auto */
-         overflow-y: auto; /* Probably better to keep scrolling internal */
+         overflow-y: auto;
     }
-
     /* Minor adjustments for content */
     .pokemon-card {
-         max-width: 95%; /* Allow slightly wider card */
+         max-width: 95%;
          padding: 20px;
     }
     .pokemon-image-container {
@@ -397,18 +383,17 @@ body {
 /* Small Screens (Mobile) */
 @media (max-width: 480px) {
     .controls-area {
-        flex-direction: column; /* Stack label and select */
+        flex-direction: column;
         gap: 5px;
         padding: 10px;
     }
     #generation-select {
-        width: 90%; /* Make select easier to tap */
+        width: 90%;
         min-width: 0;
     }
     .pokemon-nav {
-        max-height: 200px; /* Further reduce list height */
+        max-height: 200px;
     }
-    /* Further reduce text/element sizes */
     .pokemon-name { font-size: 1.6em; }
     .pokemon-nav h2 { font-size: 1em; }
     #pokemon-list li { font-size: 0.9em; padding: 6px 10px; }
@@ -417,6 +402,5 @@ body {
     .pokemon-stats h3 { font-size: 1.1em; }
     .stat-item { font-size: 0.85em; }
     .pokemon-card { padding: 15px; }
-    .pokemon-display { padding: 15px; } /* Reduce display padding */
-
+    .pokemon-display { padding: 15px; }
 }
