@@ -4,7 +4,7 @@ A responsive web application that allows users to browse Pokémon information, f
 
 ## Screenshot
 
-![Pokédex Screenshot](image_f2a770.png)
+![Pokédex Screenshot](Images/Pokedex_ss.png)
 *(You might need to adjust the path/filename if your screenshot is saved elsewhere or with a different name)*
 
 ## Features
